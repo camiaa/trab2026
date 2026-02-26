@@ -21,5 +21,5 @@ from django.urls import path, include #importar agora
 urlpatterns = [
     path("admin/", admin.site.urls),
     #Incluir as urls do app website
-    include("", include("website.urls")),
+    path("", include("website.urls")),
 ]
