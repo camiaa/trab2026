@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hora Pães</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<header>
+    <h1>Hora Pães</h1>
+</header>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/produtos/">Produtos</a>
+</nav>
+
+{% block content %}{% endblock %}
+
+</body>
+</html>

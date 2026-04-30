@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="produtos">
+    {% for produto in produtos %}
+    <div class="card">
+        <img src="{{ produto.imagem }}">
+        <h3>{{ produto.nome }}</h3>
+        <p>R$ {{ produto.preco }}</p>
+        <a href="/produto/{{ produto.id }}">Ver mais</a>
+    </div>
+    {% endfor %}
+</section>
+<h1>Produtos 🥖</h1>
+
+{% endblock %}
