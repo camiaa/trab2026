@@ -1,0 +1,236 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParaVocê</title>
+
+```
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+
+    :root{
+        --rosa-bebe: #f8c8dc;
+        --rosa-bebe-escuro: #e8a9c2;
+        --rosa-bebe-claro: #fde6f0;
+    }
+
+    body{
+        padding-top: 70px;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #fffafb;
+    }
+
+    /* Navbar */
+
+    .navbar-custom{
+        background-color: var(--rosa-bebe);
+    }
+
+    .navbar-custom .nav-link,
+    .navbar-custom .navbar-brand{
+        color: #6b2d4f;
+        font-weight: 500;
+    }
+
+    .navbar-custom .nav-link:hover{
+        color: #4a1c34;
+    }
+
+    .dropdown-menu{
+        border-radius: 10px;
+    }
+
+    /* Conteúdo */
+
+    main{
+        flex: 1;
+    }
+
+    /* Rodapé */
+
+    footer{
+        background: var(--rosa-bebe-claro);
+        padding: 25px 0;
+        text-align: center;
+        color: #6b2d4f;
+        border-top: 1px solid #f0d4e0;
+    }
+
+</style>
+
+{% block extra_css %}{% endblock %}
+
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top shadow-sm">
+    <div class="container">
+
+
+    <a class="navbar-brand" href="#">
+        <i class="bi-heart-pulse"></i> ParaVocê
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMenu">
+
+        <ul class="navbar-nav me-auto">
+
+            <li class="nav-item">
+                <a class="nav-link bi bi-house" href="{% url "pagina_inicial" %}">Início</a>
+            </li>
+
+            <!-- Dropdown 1 -->
+            <li class="nav-item dropdown">
+
+                <a class="nav-link bi-heart" href="#" role="button" data-bs-toggle="dropdown">
+                    Produtos
+                </a>
+
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Produto 1
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Produto 2
+                        </a>
+                    </li>
+
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Todos os produtos
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <!-- Dropdown 2 -->
+            <li class="nav-item dropdown">
+
+                <a class="nav-link bi-heart" href="#" role="button" data-bs-toggle="dropdown">
+                    Serviços
+                </a>
+
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a class="dropdown-item" href="#">Consultoria</a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="#">Suporte</a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url "contato" %}">Contato</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url "sobre" %}">Sobre </a>
+            </li>
+
+        </ul>
+
+        <!-- Botões à direita -->
+        <div class="d-flex">
+
+            <a href="#" class="btn btn-outline-dark me-2">
+                <i class="bi bi-person"></i> Login
+            </a>
+
+            <a href="#" class="btn btn-dark">
+                <i class="bi bi-person"></i> Cadastrar
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</nav>
+
+<!-- CONTEÚDO PRINCIPAL -->
+
+<main class="container my-5">
+
+     {% block conteudo %}
+
+     <div class="text-center py-5">
+        <h1>Bem-vindo ao site</h1>
+        <p>Desenvolvido por Thaviny e companhia.</p>
+     </div>
+
+    {% endblock %}
+
+</main>
+
+<!-- RODAPÉ -->
+
+<footer>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<div class="container">
+
+    <p class="mb-1">
+        <i class="bi bi-c-circle"></i>
+        2026 - MeuSite
+    </p>
+
+    <small>
+        Desenvolvido com Django + Bootstrap
+    </small>
+
+</div>
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+</footer>
+
+<!-- jQuery -->
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+{% block extra_js %}{% endblock %}
+
+</body>
+</html>

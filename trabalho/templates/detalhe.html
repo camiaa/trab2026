@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="padding: 30px; text-align:center;">
+    <img src="{{ produto.imagem }}" width="300">
+    <h2>{{ produto.nome }}</h2>
+    <p>{{ produto.descricao }}</p>
+    <h3>R$ {{ produto.preco }}</h3>
+    <p>Estoque: {{ produto.estoque }}</p>
+</div>
+
+{% endblock %}
