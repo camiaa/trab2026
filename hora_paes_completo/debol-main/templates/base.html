@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Sistema Biblioteca</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f4f6f9;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #eee;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+        }
+
+        .alert {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .success {
+            background: #2ecc71;
+            color: white;
+        }
+
+        .error {
+            background: #e74c3c;
+            color: white;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>Sistema de Biblioteca</h1>
+
+    <nav>
+
+        <a href="/">Dashboard</a>
+
+        <a href="/livros/">Livros</a>
+
+        <a href="/usuarios/">Usuários</a>
+
+        <a href="/emprestimos/novo/">Empréstimo</a>
+
+        <a href="{% url 'sobre' %}">Sobre</a>
+
+    </nav>
+
+</header>
+
+
+<div class="container">
+
+    {% if messages %}
+
+        {% for message in messages %}
+
+            <div class="alert {% if message.tags == 'success' %}success{% else %}error{% endif %}">
+
+                {{ message }}
+
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+    {% block content %}
+
+    {% endblock %}
+
+</div>
+
+</body>
+
+</html>

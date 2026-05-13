@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+
+    <h2>Bem-Vindo!</h2>
+
+    <p>
+        Esse site foi criado como um espaço para conectar leitores
+        ao conhecimento, à imaginação e à descoberta.
+
+        Aqui você pode explorar livros de diversos gêneros,
+        encontrar recomendações, organizar suas leituras
+        e acessar conteúdos de forma prática e moderna.
+
+        Nosso objetivo é tornar a experiência de leitura
+        mais acessível, agradável e inspiradora para todos os usuários.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h3>Resumo do Sistema</h3>
+
+    <p>Total de livros: <strong>{{ total_livros }}</strong></p>
+
+    <p>Total de usuários: <strong>{{ total_usuarios }}</strong></p>
+
+    <p>Empréstimos ativos: <strong>{{ emprestimos_ativos }}</strong></p>
+
+    <p>Empréstimos atrasados: <strong>{{ emprestimos_atrasados }}</strong></p>
+
+    <p>Livros indisponíveis: <strong>{{ livros_indisponiveis }}</strong></p>
+
+</div>
+
+
+<div class="card">
+
+    <h3>Controle de Atrasos</h3>
+
+    <table border="1" cellpadding="10" width="100%">
+
+        <tr>
+
+            <th>Livro</th>
+
+            <th>Usuário</th>
+
+            <th>Data devolução</th>
+
+            <th>Status</th>
+
+        </tr>
+
+        {% for emp in emprestimos %}
+
+        <tr>
+
+            <td>{{ emp.livro.titulo }}</td>
+
+            <td>{{ emp.usuario.nome }}</td>
+
+            <td>{{ emp.data_prevista_devolucao }}</td>
+
+            <td>
+
+                {% if emp.esta_atrasado %}
+
+                    <strong>
+
+                        {{ emp.dias_atraso }} dias atrasado
+
+                    </strong>
+
+                {% else %}
+
+                    Em dia
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}
